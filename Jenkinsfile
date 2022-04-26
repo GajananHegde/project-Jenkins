@@ -8,7 +8,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Loading Jenkins file'){
+    stage('Loading Jenkins file hehhheee'){
       environment {
         build_branch = "${env.BRANCH_NAME}"
         build_number = "${env.BUILD_NUMBER}"
@@ -28,7 +28,7 @@ pipeline {
         // sh "ls -lathr Build-Dir/"
       }
     }
-    stage('Execute stuff'){
+    stage('Execute stuff hohho'){
       environment {
         build_branch = "${env.BRANCH_NAME}"
         build_number = "${env.BUILD_NUMBER}"

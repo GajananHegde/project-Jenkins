@@ -47,15 +47,13 @@ pipeline {
               jenkinsFile.mainfunc(parallel_stage_1)
             }
           }
-        }
-        stage('Task2')
-        {
+          
           steps {
             script {
               // jenkinsFile.mainfunc2(build_branch, build_job, build_number, build_url)
               jenkinsFile.mainfunc(parallel_stage_2)
             }
-          }
+          }          
         }
       }
     }

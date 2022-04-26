@@ -38,15 +38,15 @@ pipeline {
         parallel_stage_2 = 'Backend'
 
       }
-      stage('Task1')
-      {
-        steps{
-          script {
-            // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-            jenkinsFile.mainfunc(parallel_stage_1)
-          }
+    stage('Task1')
+    {
+      steps{
+        script {
+          // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
+          jenkinsFile.mainfunc(parallel_stage_1)
         }
       }
+    }
     }
   }
 }

@@ -21,6 +21,7 @@ pipeline {
         checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
           submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9b1a10e5-6ce3-4f46-8a99-3369abed122d', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
+        sh "echo Pipeline Build Number: ${build_branch}"
         // sh "echo Pipeline Build Number: ${build_number}"
         // sh "echo Pipeline Build Job: ${build_job}"
         // sh "echo Pipeline Build URL: ${build_url}"
@@ -40,8 +41,8 @@ pipeline {
       steps{
         script {
           // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-          jenkinsFile.mainfunc(build_branch)
-          jenkinsFile.configuratioin(build_branch)
+          jenkinsFile.mainfunc(parallel_stage_1)
+          // jenkinsFile.configuratioin(build_branch)
         }
       }      
     }

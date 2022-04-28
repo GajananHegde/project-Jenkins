@@ -1,6 +1,6 @@
 def jenkinsFile
 stage('Loading Jenkins file') {
-    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'develop', '9b1a10e5-6ce3-4f46-8a99-3369abed122d', '')
+    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '9b1a10e5-6ce3-4f46-8a99-3369abed122d', '')
 }
 
 
@@ -18,7 +18,7 @@ pipeline {
       steps {
         // Checkout code from Jenkinsfile-repo
         // git(url: '', branch: '')
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop']], 
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
           submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9b1a10e5-6ce3-4f46-8a99-3369abed122d', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
         sh "echo Pipeline Build Number: ${build_branch}"

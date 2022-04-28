@@ -6,9 +6,6 @@ stage('Loading Jenkins file') {
 
 pipeline {
   
-  options {
-    disableConcurrentBuilds()
-  }
   agent any
 
   stages {

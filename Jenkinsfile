@@ -1,6 +1,6 @@
 def jenkinsFile
 stage('Loading Jenkins file') {
-    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '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', '')
+    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', null, '')
 }
 
 
@@ -21,7 +21,7 @@ pipeline {
         // git(url: '', branch: '')
         checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
-          submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
+          submoduleCfg: [], userRemoteConfigs: [[credentialsId: null, url: 'https://github.com/GajananHegde/Jenkins-repo']]]
         sh "echo Pipeline Build Number: ${build_branch}"
         // sh "echo Pipeline Build Number: ${build_number}"
         // sh "echo Pipeline Build Job: ${build_job}"
@@ -49,3 +49,6 @@ pipeline {
     }
   }
 }
+
+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
+bb4baefc-b970-4cb0-ad23-9e5a955624ea

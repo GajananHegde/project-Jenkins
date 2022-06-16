@@ -49,6 +49,3 @@ pipeline {
     }
   }
 }
-
-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
-bb4baefc-b970-4cb0-ad23-9e5a955624ea

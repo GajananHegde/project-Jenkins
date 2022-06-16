@@ -41,9 +41,9 @@ pipeline {
       }
       steps{
         script {
-          // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-          // jenkinsFile.mainfunc(parallel_stage_1)
-          jenkinsFile.configuratioin(build_branch)
+          //jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
+          jenkinsFile.mainfunc(parallel_stage_1)
+          //jenkinsFile.configuratioin(build_branch)
         }
       }      
     }

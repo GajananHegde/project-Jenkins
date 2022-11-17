@@ -7,7 +7,7 @@ stage('Loading Jenkins file') {
 pipeline {
   agent any
   parameters {
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+        text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
     }
 
   stages {
@@ -45,18 +45,20 @@ pipeline {
         stage('Task1')
         {
           steps{
+            echo '${params.BIOGRAPHY}'
             script {
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_1,${params.PERSON})
+              jenkinsFile.mainfunc(parallel_stage_1, ${params.BIOGRAPHY})
             }
           }
         }
         stage('Task2')
         {
           steps {
+            echo '${params.BIOGRAPHY}'
             script {
               // jenkinsFile.mainfunc2(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_2, ${params.BIOGRAPHY})
+              // jenkinsFile.mainfunc(parallel_stage_2, ${params.BIOGRAPHY})
             }
           }
         }

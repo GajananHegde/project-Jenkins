@@ -55,7 +55,7 @@ pipeline {
           steps{
             script {
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_1,$PERSON)
+              jenkinsFile.mainfunc(parallel_stage_1,${PERSON})
             }
           }
         }
@@ -64,7 +64,7 @@ pipeline {
           steps {
             script {
               // jenkinsFile.mainfunc2(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_2,$BIOGRAPHY)
+              jenkinsFile.mainfunc(parallel_stage_2, ${BIOGRAPHY})
             }
           }
         }

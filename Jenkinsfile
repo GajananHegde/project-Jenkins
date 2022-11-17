@@ -45,23 +45,23 @@ pipeline {
         stage('Task1')
         {
           steps{
-            echo '${params.BIOGRAPHY}'
+            echo '${env.BIOGRAPHY}'
             script {
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
               jenkinsFile.mainfunc(parallel_stage_1, ${params.BIOGRAPHY})
             }
           }
         }
-        stage('Task2')
-        {
-          steps {
-            echo '${params.BIOGRAPHY}'
+        // stage('Task2')
+        // {
+        //   steps {
+        //     echo '${env.BIOGRAPHY}'
             // script {
               // jenkinsFile.mainfunc2(build_branch, build_job, build_number, build_url)
               // jenkinsFile.mainfunc(parallel_stage_2, ${params.BIOGRAPHY})
             // }
-          }
-        }
+        //   }
+        // }
       }
     }
   }

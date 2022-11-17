@@ -1,6 +1,6 @@
 def jenkinsFile
 stage('Loading Jenkins file') {
-    jenkinsFile = fileLoader.fromGit('Test-2/Jenkinsfile', 'https://github.com/robinaa/jenkinsfilerepo', 'develop', 'bccfcd00-38b2-4b1f-a943-0cc936c415e2', '')
+    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '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', '')
 }
 
 

@@ -18,9 +18,9 @@ pipeline {
       steps {
         // Checkout code from Jenkinsfile-repo
         // git(url: '', branch: '')
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop']], 
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
-          submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bccfcd00-38b2-4b1f-a943-0cc936c415e2', url: 'https://github.com/robinaa/jenkinsfilerepo']]]
+          submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
         // sh "echo Pipeline Build Number: ${build_number}"
         // sh "echo Pipeline Build Job: ${build_job}"
         // sh "echo Pipeline Build URL: ${build_url}"

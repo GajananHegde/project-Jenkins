@@ -1,11 +1,10 @@
 def jenkinsFile
 stage('Loading Jenkins file') {
-    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '59996219-c72a-4010-9758-8490aeb84767', '')
+    jenkinsFile = fileLoader.fromGit('Test-2/Jenkinsfile', 'https://github.com/robinaa/jenkinsfilerepo', 'develop', 'bccfcd00-38b2-4b1f-a943-0cc936c415e2', '')
 }
 
 
 pipeline {
-
   agent any
 
   stages {
@@ -19,10 +18,9 @@ pipeline {
       steps {
         // Checkout code from Jenkinsfile-repo
         // git(url: '', branch: '')
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
-          submoduleCfg: [], userRemoteConfigs: [[credentialsId: '59996219-c72a-4010-9758-8490aeb84767', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
-        sh "echo Pipeline Build Number: ${build_branch}"
+          submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bccfcd00-38b2-4b1f-a943-0cc936c415e2', url: 'https://github.com/robinaa/jenkinsfilerepo']]]
         // sh "echo Pipeline Build Number: ${build_number}"
         // sh "echo Pipeline Build Job: ${build_job}"
         // sh "echo Pipeline Build URL: ${build_url}"
@@ -38,14 +36,28 @@ pipeline {
         build_url = "${env.BUILD_URL}"
         parallel_stage_1 = 'Frontend'
         parallel_stage_2 = 'Backend'
-      }
-      steps{
-        script {
-          // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-          jenkinsFile.mainfunc(parallel_stage_1)
-          //jenkinsFile.configuratioin(build_branch)
-        }
+
       }      
+      parallel {
+        stage('Task1')
+        {
+          steps{
+            script {
+              // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
+              jenkinsFile.mainfunc(parallel_stage_1)
+            }
+          }
+        }
+        stage('Task2')
+        {
+          steps {
+            script {
+              // jenkinsFile.mainfunc2(build_branch, build_job, build_number, build_url)
+              jenkinsFile.mainfunc(parallel_stage_2)
+            }
+          }
+        }
+      }
     }
   }
 }

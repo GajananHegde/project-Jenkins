@@ -31,7 +31,7 @@ pipeline {
         // sh "ls -lathr Build-Dir/"
       }
     }
-    // stage('Execute stuff'){
+    stage('Execute stuff'){
     //   environment {
     //     build_branch = "${env.BRANCH_NAME}"
     //     build_number = "${env.BUILD_NUMBER}"

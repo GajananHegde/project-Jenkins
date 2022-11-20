@@ -8,6 +8,7 @@ pipeline {
   agent any
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
 
   stages {
@@ -49,7 +50,7 @@ pipeline {
             script {
               echo "${env.BIOGRAPHY}"
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_1, "${params.BIOGRAPHY}")
+              jenkinsFile.mainfunc(parallel_stage_1, "${params.BIOGRAPHY}", ${params.CHOICE})
             }
           }
         }

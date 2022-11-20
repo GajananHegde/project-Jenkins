@@ -32,15 +32,15 @@ pipeline {
       }
     }
     stage('Execute stuff'){
-    //   environment {
+      environment {
     //     build_branch = "${env.BRANCH_NAME}"
     //     build_number = "${env.BUILD_NUMBER}"
     //     build_job = "${env.JOB_NAME}"
     //     build_url = "${env.BUILD_URL}"
-    //     parallel_stage_1 = 'Frontend'
+        parallel_stage_1 = 'Frontend'
     //     parallel_stage_2 = 'Backend'
 
-    //   }
+      }
       parallel {
         stage('Task1')
         {

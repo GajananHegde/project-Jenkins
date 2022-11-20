@@ -9,6 +9,14 @@ pipeline {
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+            extendedChoice(
+                  name: 'tagName',
+                  defaultValue: '',
+                  description: 'tag name',
+                  type: 'PT_SINGLE_SELECT',
+                  groovyScript: """def gettags = ("git ls-remote -t https://github.com/Gale43/participACTION-Loyalty-Engine.git").execute()
+                     return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
+                    """,)
     }
 
   stages {
@@ -34,7 +42,7 @@ pipeline {
     }
     stage('Execute stuff'){
       environment {
-    //     build_branch = "${env.BRANCH_NAME}"
+        build_branch = "${env.BRANCH_NAME}"
     //     build_number = "${env.BUILD_NUMBER}"
     //     build_job = "${env.JOB_NAME}"
     //     build_url = "${env.BUILD_URL}"
@@ -47,6 +55,7 @@ pipeline {
         {
           steps{
             echo "${env.BIOGRAPHY}"
+            echo "${params.tagName}"
             script {
               echo "${env.BIOGRAPHY}"
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)

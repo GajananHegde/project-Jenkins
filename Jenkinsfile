@@ -14,7 +14,7 @@ pipeline {
         defaultValue: '',
         description: 'tag name',
         type: 'PT_SINGLE_SELECT',
-        groovyScript: """def gettags = ("git ls-remote -t https://github.com/https://github.com/GajananHegde/project-Jenkins.git").execute()
+        groovyScript: """def gettags = ("git ls-remote -t https://github.com/GajananHegde/project-Jenkins.git").execute()
           return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
               """,)
     }

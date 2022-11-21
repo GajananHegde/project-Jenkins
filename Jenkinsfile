@@ -54,7 +54,7 @@ pipeline {
         stage('Task1')
         {
           steps{
-            echo "${env.BIOGRAPHY}"
+            echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
             echo "${params.tagName}"
             script {
               echo "${env.BIOGRAPHY}"

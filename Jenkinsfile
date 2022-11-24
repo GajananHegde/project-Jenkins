@@ -80,6 +80,8 @@ pipeline {
             ls -l .Build-Dir
             cd .Build-Dir
             pwd
+            cd project-Jenkins
+            ls -l
             """
             script {
               echo "${env.BIOGRAPHY}"

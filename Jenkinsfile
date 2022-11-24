@@ -77,7 +77,7 @@ pipeline {
             echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
             echo "${params.tagName}"
             sh """
-            ls -l
+            ls -l ./..
             """
             script {
               echo "${env.BIOGRAPHY}"

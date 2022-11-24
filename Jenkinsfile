@@ -19,7 +19,6 @@ pipeline {
               """,)
     }
 
-    }
   stages {
     stage('Loading Project code repo'){
       environment {
@@ -40,6 +39,7 @@ pipeline {
         // sh "ls -lathr"
         // sh "ls -lathr Build-Dir/"
       }
+    }
     stage('Loading Jenkins file'){
       environment {
         build_branch = "${env.BRANCH_NAME}"

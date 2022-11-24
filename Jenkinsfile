@@ -76,7 +76,9 @@ pipeline {
           steps{
             echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
             echo "${params.tagName}"
+            sh """
             ls -l
+            """
             script {
               echo "${env.BIOGRAPHY}"
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)

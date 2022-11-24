@@ -78,6 +78,8 @@ pipeline {
             echo "${params.tagName}"
             sh """
             ls -l .Build-Dir
+            cd .Build-Dir
+            pwd
             """
             script {
               echo "${env.BIOGRAPHY}"

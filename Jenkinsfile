@@ -53,7 +53,7 @@ pipeline {
         checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']],
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
           submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/GajananHegde/Jenkins-repo']]]
-        sh "Checking out Jenkins repo"
+        // sh "Checking out Jenkins repo"
         // sh "echo Pipeline Build Job: ${build_job}"
         // sh "echo Pipeline Build URL: ${build_url}"
         // sh "ls -lathr"

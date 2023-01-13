@@ -85,15 +85,10 @@ pipeline {
             """
             script {
               echo "${env.BIOGRAPHY}"
-              currentBuild.displayName = "The name."
               currentBuild.description = "${params.BIOGRAPHY}"
               // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
               jenkinsFile.mainfunc(parallel_stage_1, "${params.BIOGRAPHY}"+"${params.CHOICE}")
             }
-            script {
-                    currentBuild.displayName = "The name."
-                    currentBuild.description = "The best description."
-                }
           }
         }
         // stage('Task2')

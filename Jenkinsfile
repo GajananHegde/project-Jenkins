@@ -20,7 +20,7 @@ pipeline {
     }
 
   stages {
-    stage('Loading Project code repo "${params.BIOGRAPHY}"'){
+    stage('Loading Project code repo ${params.BIOGRAPHY}'){
       environment {
         build_branch = "${env.BRANCH_NAME}"
         build_number = "${env.BUILD_NUMBER}"

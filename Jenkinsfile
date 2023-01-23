@@ -107,6 +107,6 @@ pipeline {
   }
 }
 
-def some_function(String blah) {
+def some_function(params.BIOGRAPHY) {
   print(blah)
 }

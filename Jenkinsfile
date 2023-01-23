@@ -74,7 +74,7 @@ pipeline {
         stage('Task1')
         {
           steps{
-            some_function(params.BIOGRAPHY)
+            some_function()
             // echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
             // echo "${params.tagName}"
             // sh """
@@ -107,6 +107,6 @@ pipeline {
   }
 }
 
-def some_function(params.BIOGRAPHY) {
-  print(blah)
+def some_function() {
+  print(params.BIOGRAPHY)
 }

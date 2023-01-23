@@ -74,21 +74,22 @@ pipeline {
         stage('Task1')
         {
           steps{
-            echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
-            echo "${params.tagName}"
-            sh """
-            ls -l .Build-Dir
-            cd .Build-Dir
-            pwd
-            cd project-Jenkins
-            ls -al
-            """
-            script {
-              echo "${env.BIOGRAPHY}"
-              currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
-              // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(parallel_stage_1, "wells")
-            }
+            some_function(params.BIOGRAPHY)
+            // echo "${env.BIOGRAPHY}"+"${params.CHOICE}"
+            // echo "${params.tagName}"
+            // sh """
+            // ls -l .Build-Dir
+            // cd .Build-Dir
+            // pwd
+            // cd project-Jenkins
+            // ls -al
+            // """
+            // script {
+            //   echo "${env.BIOGRAPHY}"
+            //   currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
+            //   // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
+            //   jenkinsFile.mainfunc(parallel_stage_1, "wells")
+            // }
           }
         }
         // stage('Task2')
@@ -104,4 +105,8 @@ pipeline {
       }
     }
   }
+}
+
+def some_function(String blah) {
+  print(blah)
 }

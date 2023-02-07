@@ -30,7 +30,7 @@ pipeline {
       steps {
         // Checkout code from Jenkinsfile-repo
         // git(url: '', branch: '')
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: "${params.tagName}"]], 
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
           submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/GajananHegde/project-Jenkins']]]
         // sh "echo Pipeline Build Number: ${build_number}"

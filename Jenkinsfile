@@ -27,7 +27,7 @@ pipeline {
     }
 
   stages {
-    stage('Loading Project code repo \"${params.BIOGRAPHY}\"'){
+    stage('Loading Project code repo'){
       environment {
         build_branch = "${env.BRANCH_NAME}"
         build_number = "${env.BUILD_NUMBER}"
@@ -95,7 +95,7 @@ pipeline {
             //   echo "${env.BIOGRAPHY}"
             //   currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
             //   // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc("${params.choicesCheckbox}", "wells")
+              jenkinsFile.mainfunc("${params.choicesCheckbox}", "Frontend")
             }
           }
         }

@@ -19,7 +19,7 @@ pipeline {
               """,)
         extendedChoice(
         name: 'choicesCheckbox',
-        defaultValue: "${env.BUILD_ARCHS}",
+        defaultValue: 'rick',
         multiSelectDelimiter: ',',
         type: 'PT_CHECKBOX',
         value: 'rick,morty,jerry,summer,beth,birbperson'
@@ -95,7 +95,7 @@ pipeline {
             //   echo "${env.BIOGRAPHY}"
             //   currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
             //   // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(${env.choicesCheckbox}, "wells")
+              jenkinsFile.mainfunc("${env.choicesCheckbox}", "wells")
             }
           }
         }

@@ -95,7 +95,7 @@ pipeline {
             //   echo "${env.BIOGRAPHY}"
             //   currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
             //   // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
-              jenkinsFile.mainfunc(${param.choicesCheckbox}, "wells")
+              jenkinsFile.mainfunc(${env.choicesCheckbox}, "wells")
             }
           }
         }

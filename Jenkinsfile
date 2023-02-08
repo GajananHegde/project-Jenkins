@@ -17,6 +17,13 @@ pipeline {
         groovyScript: """def gettags = ("git ls-remote -t https://github.com/GajananHegde/project-Jenkins.git").execute()
           return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
               """,)
+        extendedChoice(
+        name: 'choicesCheckbox',
+        defaultValue: "${env.BUILD_ARCHS}",
+        multiSelectDelimiter: ',',
+        type: 'PT_CHECKBOX',
+        value: 'rick,morty,jerry,summer,beth,birbperson'
+        )
     }
 
   stages {
@@ -30,7 +37,7 @@ pipeline {
       steps {
         // Checkout code from Jenkinsfile-repo
         // git(url: '', branch: '')
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], 
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']],
           doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.Build-Dir']],
           submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/GajananHegde/project-Jenkins']]]
         // sh "echo Pipeline Build Number: ${build_number}"
@@ -88,6 +95,7 @@ pipeline {
             //   echo "${env.BIOGRAPHY}"
             //   currentBuild.description = "env: ${params.BIOGRAPHY} tagName: ${params.CHOICE}"
             //   // jenkinsFile.mainfunc(build_branch, build_job, build_number, build_url)
+              print(${param.choicesCheckbox})
               jenkinsFile.mainfunc(parallel_stage_1, "wells")
             }
           }

@@ -220,7 +220,7 @@ def db_backup_runtask() {
       --cluster p-dash-rdsbackup \
       --task-definition rdsbackup-taskdefinitions \
       --launch-type FARGATE \
-      --overrides '{"containerOverrides": [{"name": "rdsbackup", "environment": [{ "name": "CLIENT_NAME_BUILD", "value": ${build_environment}},{"name": "LOWER_ENVIRONMENT", "value": ${is_lower_environment}},{"name": "ENV_FILE_START_LETTER","value": ${env_file_starting_letter}}]}]}' \
+      --overrides '{"containerOverrides": [{"name": "rdsbackup", "environment": [{ "name": "CLIENT_NAME_BUILD", "value": "${build_environment}"},{"name": "LOWER_ENVIRONMENT", "value": "${is_lower_environment}"},{"name": "ENV_FILE_START_LETTER", "value": "${env_file_starting_letter}"}]}]}' \
       --network-configuration "awsvpcConfiguration={subnets=['subnet-0a1807c169d4ba548','subnet-06163ecaf0273e89d','subnet-0922504ca7a88b1f7'],securityGroups=['sg-0d68a6694858e166a'],assignPublicIp='ENABLED'}"
     """
   }

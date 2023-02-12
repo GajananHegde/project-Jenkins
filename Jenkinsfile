@@ -151,7 +151,7 @@ pipeline {
   }
 
   agent any
-  }
+  
   parameters {
       choice(choices: 'dev\nqa\ncft-qa\ncft-dev', description: 'Which branch to take the backup ?', name: 'BACKUP_ENV_CHOICE')
   }

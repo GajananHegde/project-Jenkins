@@ -150,13 +150,7 @@ pipeline {
       disableConcurrentBuilds()
   }
 
-  agent {
-    node {
-      label 'Slave01||Slave02'
-    }
-  }
-  environment {
-    PROJECT = 'Gale43/GALE-Customizable-Dashboard'
+  agent any
   }
   parameters {
       choice(choices: 'dev\nqa\ncft-qa\ncft-dev', description: 'Which branch to take the backup ?', name: 'BACKUP_ENV_CHOICE')

@@ -9,14 +9,6 @@ pipeline {
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        extendedChoice(
-        name: 'tagName',
-        defaultValue: '',
-        description: 'tag name',
-        type: 'PT_SINGLE_SELECT',
-        groovyScript: """def gettags = ("git ls-remote -t https://github.com/GajananHegde/project-Jenkins.git").execute()
-          return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
-              """,)
     }
 
   stages {

@@ -8,7 +8,8 @@ pipeline {
   agent any
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        choice(name: 'UPSTREAM_DATABASE', choices: ['wells', 'Two', 'Three'], description: 'Pick something')
+        choice(name: 'DOWNSTREAM_DATABASE', choices: ['qa', 'Two', 'Three'], description: 'Pick something')
     }
 
   stages {
@@ -32,7 +33,7 @@ pipeline {
         {
           steps{
             script {
-              jenkinsFile.mainfunc("${params.BIOGRAPHY}", "Frontend")
+              jenkinsFile.mainfunc("${params.UPSTREAM_DATABASE}", "${params.DOWNSTREAM_DATABASE}")
             }
           }
         }

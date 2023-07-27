@@ -9,7 +9,7 @@ pipeline {
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
         choice(name: 'UPSTREAM_DATABASE', choices: ['wells', 'Two', 'Three','one'], description: 'Pick something')
-        choice(name: 'DOWNSTREAM_DATABASE', choices: ['qa', 'Two', 'Three','two'], description: 'Pick something')
+        choice(name: 'DOWNSTREAM_DATABASE', choices: ['qa', 'cft-qa', 'Two', 'Three','two'], description: 'Pick something')
     }
 
   stages {

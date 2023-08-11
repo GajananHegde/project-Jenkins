@@ -8,7 +8,7 @@ pipeline {
   agent any
   parameters {
         text(name: 'BIOGRAPHY', defaultValue: 'Dheera_Dheera', description: 'Enter some information about the person')
-        choice(name: 'UPSTREAM_DATABASE', choices: ['wells', 'Two', 'Three','one'], description: 'Pick something')
+        choice(name: 'UPSTREAM_DATABASE', choices: ['wells', 'hnrblock','Two', 'Three','one'], description: 'Pick something')
         choice(name: 'DOWNSTREAM_DATABASE', choices: ['markey', 'hnr-qa', 'Two', 'Three','two'], description: 'Pick something')
     }
 
@@ -45,6 +45,13 @@ pipeline {
 def inject_env(deploy_environment){
     switch (deploy_environment){
         case 'wells':
+            env.build_env = deploy_environment
+            env.environment_starting_letter = 'p'
+            env.subnets = 'subnet-009b9198c8c676ea5'
+            env.security_groups = 'sg-0cf66b11b856e9af5'
+            env.environment = 'prod'
+            break
+        case 'hnrblock':
             env.build_env = deploy_environment
             env.environment_starting_letter = 'p'
             env.subnets = 'subnet-009b9198c8c676ea5'

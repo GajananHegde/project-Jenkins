@@ -88,7 +88,7 @@ def inject_env(deploy_environment){
 // def mainfunc(String build_branch, String build_number, String build_job, String build_url) {
 def mainfunc(String from_db, String to_db){
     inject_env(from_db)
-    test_cli_command
+    test_cli_command()
     // sh """
     // echo "build_env :${build_env}"
     // """

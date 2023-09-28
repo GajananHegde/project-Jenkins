@@ -80,7 +80,7 @@ def inject_env(deploy_environment){
     //         env.environment = 'dev'
     // }
     env.record_name = 'testsite-dash.galedash-testing.g43labs.net'
-    env.record_value = 'This is the second blah'
+    env.record_value = 'This.is.sparta'
     env.cname_json = 'cnamerecord.json'
     env.hostedzoneid = 'Z0716055163IOUTFN9WBX'
 }

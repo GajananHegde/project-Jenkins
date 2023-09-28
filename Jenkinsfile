@@ -1,7 +1,7 @@
-// def jenkinsFile
-// stage('Loading Jenkins file') {
-//     jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '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', '')
-// }
+def jenkinsFile
+stage('Loading Jenkins file') {
+    jenkinsFile = fileLoader.fromGit('project-Jenkins/project', 'https://github.com/GajananHegde/Jenkins-repo', 'main', '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', '')
+}
 
 
 pipeline {
@@ -33,7 +33,7 @@ pipeline {
         {
           steps{
             script {
-              mainfunc("${params.UPSTREAM_DATABASE}", "${params.DOWNSTREAM_DATABASE}")
+              jenkinsFile.mainfunc("${params.UPSTREAM_DATABASE}", "${params.DOWNSTREAM_DATABASE}")
             }
           }
         }

@@ -132,6 +132,6 @@ def test_cli_command()
     sh """
     sed -i '' -e "s/<% RECORD_NAME %>/${record_name}/g" ${cname_json}
     sed -i '' -e "s/<% RECORD_VALUE %>/${record_value}/g" ${cname_json}
-    aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
+    /opt/homebrew/bin/aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
     """
 }

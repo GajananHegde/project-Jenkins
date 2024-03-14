@@ -135,3 +135,10 @@ def test_cli_command()
     /opt/homebrew/bin/aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
     """
 }
+
+def check_nginx_conf_file()
+{
+  sh """
+    docker run -v conf.d:/etc/nginx/conf.d/ -v nginx.conf:/etc/nginx/nginx.conf --rm nginx nginx -T
+"""
+}

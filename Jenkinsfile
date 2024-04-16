@@ -83,6 +83,7 @@ def inject_env(deploy_environment){
     env.record_value = 'This.is.sparta'
     env.cname_json = 'cnamerecord.json'
     env.hostedzoneid = 'Z0716055163IOUTFN9WBX'
+    env.test_env = "dev-${env.BUILD_NUMBER}"
 }
 
 // def mainfunc(String build_branch, String build_number, String build_job, String build_url) {
@@ -129,10 +130,13 @@ def mainfunc(String from_db, String to_db){
 
 def test_cli_command()
 {
+    // sh """
+    // sed -i '' -e "s/<% RECORD_NAME %>/${record_name}/g" ${cname_json}
+    // sed -i '' -e "s/<% RECORD_VALUE %>/${record_value}/g" ${cname_json}
+    // /opt/homebrew/bin/aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
+    // """
     sh """
-    sed -i '' -e "s/<% RECORD_NAME %>/${record_name}/g" ${cname_json}
-    sed -i '' -e "s/<% RECORD_VALUE %>/${record_value}/g" ${cname_json}
-    /opt/homebrew/bin/aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
+    echo "${test_env}
     """
 }
 

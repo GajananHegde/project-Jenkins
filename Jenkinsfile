@@ -136,7 +136,7 @@ def test_cli_command()
     // /opt/homebrew/bin/aws route53 change-resource-record-sets --hosted-zone-id ${hostedzoneid} --change-batch file://${cname_json}
     // """
     sh """
-    echo "${test_env}
+    echo "${test_env}"
     """
 }
 

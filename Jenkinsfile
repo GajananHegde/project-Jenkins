@@ -90,6 +90,11 @@ def inject_env(deploy_environment){
 def mainfunc(String from_db, String to_db){
     inject_env(from_db)
     test_cli_command()
+    CC = """${sh(
+                returnStdout: true,
+                script: 'date "+%Y-%m-%d %H:%M:%S"'
+            )}"""
+    echo "Current time: ${CC}"
     // sh """
     // echo "build_env :${build_env}"
     // """

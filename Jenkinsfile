@@ -94,19 +94,9 @@ def mainfunc(String from_db, String to_db){
     def currentDate = sh(
         returnStdout: true,
         script: 'date "+%Y%m%d"'
-    ).trim()
-
-    // Print the current date
-    echo "Current date: ${currentDate}"
-
-    // Set the environment variable
+    )
     env.date = currentDate
-
-    // Construct the build_env value
     env.build_env = "dev-${env.date}-${env.BUILD_NUMBER}"
-
-    // Print the build_env value
-    echo "Build environment: ${env.build_env}"
 
     // sh """
     // echo "build_env :${build_env}"

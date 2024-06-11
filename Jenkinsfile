@@ -90,7 +90,7 @@ def inject_env(deploy_environment){
 def mainfunc(String from_db, String to_db){
     inject_env(from_db)
     test_cli_command()
-    date = """${sh(
+    env.date = """${sh(
                 returnStdout: true,
                 script: 'date "+%Y-%m-%d %H:%M:%S"'
             )}"""

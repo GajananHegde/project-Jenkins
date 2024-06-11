@@ -92,7 +92,7 @@ def mainfunc(String from_db, String to_db){
     test_cli_command()
     env.date = """${sh(
                 returnStdout: true,
-                script: 'date "+%Y-%m-%d %H:%M:%S"'
+                script: 'date "+%Y%m%d"'
             )}"""
     echo "Current time: ${date}"
     env.date = "dev-${date}-${env.BUILD_NUMBER}"

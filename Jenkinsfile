@@ -90,13 +90,24 @@ def inject_env(deploy_environment){
 def mainfunc(String from_db, String to_db){
     inject_env(from_db)
     test_cli_command()
-    env.date = """${sh(
-                returnStdout: true,
-                script: 'date "+%Y%m%d"'
-            )}"""
-    echo "Current time: ${date}"
-    env.date = "dev-${date}-${env.BUILD_NUMBER}"
-    echo "Current time: ${env.date}"
+    // Get the current date
+    def currentDate = sh(
+        returnStdout: true,
+        script: 'date "+%Y%m%d"'
+    ).trim()
+
+    // Print the current date
+    echo "Current date: ${currentDate}"
+
+    // Set the environment variable
+    env.date = currentDate
+
+    // Construct the build_env value
+    env.build_env = "dev-${env.date}-${env.BUILD_NUMBER}"
+
+    // Print the build_env value
+    echo "Build environment: ${env.build_env}"
+
     // sh """
     // echo "build_env :${build_env}"
     // """
